@@ -37,7 +37,7 @@ markdown-it-py==3.0.0
 MarkupSafe==2.1.5
 mdurl==0.1.2
 narwhals==1.9.0
-networkx==3.3
+networkx
 nibabel==5.2.1
 nipype==1.8.6
 numpy==1.26.4
@@ -72,7 +72,7 @@ rich==13.9.1
 rpds-py==0.20.0
 rsa==4.9
 scikit-learn==1.5.1
-scipy==1.14.1
+scipy
 setuptools==75.1.0
 simplejson==3.19.3
 six==1.16.0
@@ -93,3 +93,4 @@ uritemplate==4.1.1
 urllib3==2.2.3
 wheel==0.44.0
 
+plotly==5.22.0

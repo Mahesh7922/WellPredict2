@@ -66,7 +66,7 @@ def diabetes_general():
             message = "It's advisable to consult a doctor for further evaluation."
             return risk_category, message, "high"
 
-    st.title("Heart Disease Risk Predictor")
+    st.title("Diabetes Prediction Model")
 
     col1, col2, col3 = st.columns(3)
 

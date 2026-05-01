@@ -39,9 +39,9 @@ def chat_bot():
 
     # Function to call the Gemini API
     def get_gemini_response(prompt):
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel("gemini-2.5-flash")
         response = model.generate_content(prompt)
-        return response.text
+        return response.candidates[0].content.parts[0].text
 
     # Function to record audio in Python
     def record_audio(duration=3, sample_rate=44100):

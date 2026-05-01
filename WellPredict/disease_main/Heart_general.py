@@ -81,7 +81,7 @@ def heart_gen():
         
         return risk_category, message, risk_level
 
-    st.title("Diabetes Prediction Model")
+    st.title("Heart Disease Prediction Model")
     st.header("Enter Your Details Below:")
 
     col1, col2, col3 = st.columns(3)
