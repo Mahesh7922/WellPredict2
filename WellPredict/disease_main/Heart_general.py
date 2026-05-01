@@ -52,7 +52,7 @@ def heart_gen():
         }
     }
 
-    def diabetes_prediction(bmi_category, age_group, blood_pressure_category,
+    def heart_prediction(bmi_category, age_group, blood_pressure_category,
                             smoking_status, physical_activity, unhealthy_foods,
                             alcohol_consumption, family_history):
         risk_score = (
@@ -68,15 +68,15 @@ def heart_gen():
         
         if risk_score <= 12:
             risk_category = "Safe"
-            message = "You are at low risk for diabetes. Keep maintaining a healthy lifestyle."
+            message = "You are at low risk for heart disease. Keep maintaining a healthy lifestyle."
             risk_level = "safe"
         elif 13 <= risk_score <= 23:
             risk_category = "Moderate Risk"
-            message = "You have a moderate risk of diabetes. Consider consulting a healthcare professional."
+            message = "You have a moderate risk of heart disease. Consider consulting a healthcare professional."
             risk_level = "moderate"
         else:
             risk_category = "High Risk"
-            message = "You are at high risk for diabetes. It's advisable to seek medical attention."
+            message = "You are at high risk for heart disease. It's advisable to seek medical attention."
             risk_level = "high"
         
         return risk_category, message, risk_level
@@ -169,7 +169,7 @@ def heart_gen():
 
     st.write(f"**Your BMI:** {bmi} ({bmi_category})")
 
-    if st.button("Predict Diabetes Risk"):
+    if st.button("Predict Heart Disease Risk"):
         selections = [
             blood_pressure,
             smoking_status, 
@@ -188,7 +188,7 @@ def heart_gen():
             else:
                 age_group = '71+'
             
-            risk_category, message, risk_level = diabetes_prediction(
+            risk_category, message, risk_level = heart_prediction(
                 bmi_category,
                 age_group,
                 blood_pressure,
