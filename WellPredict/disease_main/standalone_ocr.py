@@ -18,7 +18,7 @@ def report_uploader():
     
     if uploaded_file is not None:
         if st.button("Extract Data & Text", use_container_width=True):
-            with st.spinner("Gemini is reading your document..."):
+            with st.spinner("Reading your document..."):
                 try:
                     API_KEY = st.secrets["API_KEY"]
                     model = genai.GenerativeModel("gemini-2.5-flash")
