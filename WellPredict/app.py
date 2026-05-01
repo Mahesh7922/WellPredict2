@@ -7,7 +7,7 @@ from streamlit_option_menu import option_menu
 st.set_page_config(page_title="WellPredict", layout="wide", page_icon="⚕️")
 
 # Import other files
-from disease_main import kidney_main, heart_main, diabetes_main, Diabetes_general, Heart_general, Kidney_general, Doctor_general, standalone_ocr
+from disease_main import kidney_main, heart_main, diabetes_main, Diabetes_general, Heart_general, Kidney_general, standalone_ocr
 from Profile import user_profile
 from chatbot_folder.streamlit_chatbot_interface_main import chatbot
 
@@ -210,11 +210,10 @@ with st.sidebar:
                             'Diabetes Prediction',
                             'Heart Disease Prediction',
                             'Kidney Disease Prediction',
-                            'Doctor Consultancy',
                             'Chat Bot'
                             ],
                             menu_icon='',
-                            icons=['person', 'activity', 'heart-pulse', 'droplet', 'capsule', 'chat-dots'],
+                            icons=['person', 'activity', 'heart-pulse', 'droplet', 'chat-dots'],
                             default_index=0,
                             styles={
                                 "container": {"padding": "0!important", "background-color": "transparent"},
@@ -224,7 +223,7 @@ with st.sidebar:
                             })
 
 # Only show hero on the main landing/profile/welcome screen to avoid clutter on prediction pages (optional)
-if selected in ['Profile', 'Doctor Consultancy', 'Chat Bot']:
+if selected in ['Profile', 'Chat Bot']:
     show_hero()
 
 # Handle selected option
@@ -246,8 +245,6 @@ elif selected == 'Kidney Disease Prediction':
     with st.expander('Clinical Analysis & Prediction Tool'):
         kidney_main.kidney()
 
-elif selected == 'Doctor Consultancy':
-    Doctor_general.doctor_general()
 
 elif selected == 'Chat Bot':
     chatbot.chat_bot()
