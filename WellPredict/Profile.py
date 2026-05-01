@@ -170,7 +170,7 @@ def user_profile():
         
         # Dummy historical predictions
         dummy_logs = [
-            {"date": "2026-04-28", "type": "Heart Disease", "result": "Moderate Risk - Follow up required", "risk": "medium"},
+            {"date": "2026-04-28", "type": "Heart Disease", "result": "Normal - No indications", "risk": "low"},
             {"date": "2026-04-20", "type": "Diabetes", "result": "Low Risk - Maintain lifestyle", "risk": "low"},
             {"date": "2026-04-15", "type": "Kidney Disease", "result": "Normal - No indications", "risk": "low"},
             {"date": "2026-03-10", "type": "Heart Disease", "result": "Low Risk - Maintain lifestyle", "risk": "low"},
