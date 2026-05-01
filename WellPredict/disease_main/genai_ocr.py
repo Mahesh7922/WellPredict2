@@ -3,10 +3,11 @@ import os
 from dotenv import load_dotenv
 import json
 import fitz  # PyMuPDF
+import streamlit as st
 
 # Load environment logic
 load_dotenv()
-API_KEY = os.getenv("API_KEY")
+API_KEY = st.secrets.get("API_KEY", os.getenv("API_KEY"))
 if API_KEY:
     genai.configure(api_key=API_KEY)
 

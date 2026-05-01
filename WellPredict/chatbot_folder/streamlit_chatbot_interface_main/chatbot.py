@@ -15,7 +15,7 @@ def chat_bot():
     load_dotenv()
 
     # Set up Gemini API key from environment variable
-    genai.configure(api_key=os.getenv("API_KEY"))
+    genai.configure(api_key=st.secrets.get("API_KEY"))
 
     st.title("Health Care ChatBot")
     # 🩺
