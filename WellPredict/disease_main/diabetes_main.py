@@ -172,25 +172,5 @@ def diabetes():
                 
             render_result_card(prediction[0], confidence, result_text, badge_class)
 
-            # Persistence Pipeline
-            if st.session_state.get('logged_in') and st.session_state.get('user_id'):
-                try:
-                    from Profile import get_supabase_client
-                    sb = get_supabase_client()
-                    if sb:
-                        payload = {
-                            "user_id": st.session_state['user_id'],
-                            "bmi": float(BMI),
-                            "blood_pressure_sys": float(BloodPressure),
-                            "disease_type": "Diabetes",
-                            "prediction_result": result_text,
-                            "raw_inputs": {
-                                "Age": float(Age) if 'Age' in locals() else 0, "BMI": float(BMI), "Blood_Pressure": float(BloodPressure),
-                                "Skin_Thickness": float(SkinThickness), "Glucose": float(Glucose), "Insulin": float(Insulin),
-                                "Pregnancies": float(Pregnancies), "Pedigree_Function": float(DiabetesPedigreeFunction)
-                            }
-                        }
-                        sb.table('patient_records').insert(payload).execute()
-                except Exception as e:
-                    st.error(f"Persistence Error: {str(e)}")
+
 

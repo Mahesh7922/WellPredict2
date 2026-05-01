@@ -241,31 +241,6 @@ def kidney():
                     
                 render_result_card(prediction[0], confidence, result_text, badge_class)
 
-                # Persistence Pipeline
-                if st.session_state.get('logged_in') and st.session_state.get('user_id'):
-                    try:
-                        from Profile import get_supabase_client
-                        sb = get_supabase_client()
-                        if sb:
-                            payload = {
-                                "user_id": st.session_state['user_id'],
-                                "blood_pressure_sys": float(blood_pressure),
-                                "disease_type": "Kidney",
-                                "prediction_result": result_text,
-                                "raw_inputs": {
-                                    "Age": age, "Blood_Pressure": blood_pressure, "Specific_Gravity": specific_gravity,
-                                    "Albumin": albumin, "Sugar": sugar, "Red_Blood_Cells": red_blood_cells,
-                                    "Pus_Cell": pus_cell, "Pus_Cell_Clumps": pus_cell_clumps, "Bacteria": bacteria,
-                                    "Blood_Glucose_Random": blood_glucose_random, "Blood_Urea": blood_urea,
-                                    "Serum_Creatinine": serum_creatinine, "Sodium": sodium, "Potassium": potassium,
-                                    "Haemoglobin": haemoglobin, "Packed_Cell_Volume": packed_cell_volume,
-                                    "White_Blood_Cell_Count": white_blood_cell_count, "Red_Blood_Cell_Count": red_blood_cell_count,
-                                    "Hypertension": hypertension, "Diabetes_Mellitus": diabetes_mellitus, "Coronary_Artery_Disease": cad,
-                                    "Appetite": appet, "Pedal_Edema": pe, "Aanemia": aane
-                                }
-                            }
-                            sb.table('patient_records').insert(payload).execute()
-                    except Exception as e:
-                        st.error(f"Persistence Error: {str(e)}")
+
             except Exception as e:
                 st.error(f"Error during prediction: {str(e)}")

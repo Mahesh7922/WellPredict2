@@ -207,28 +207,6 @@ def heart():
                     
                 render_result_card(prediction[0], confidence, result_text, badge_class)
 
-                # Persistence Pipeline
-                if st.session_state.get('logged_in') and st.session_state.get('user_id'):
-                    try:
-                        from Profile import get_supabase_client
-                        sb = get_supabase_client()
-                        if sb:
-                            payload = {
-                                "user_id": st.session_state['user_id'],
-                                "blood_pressure_sys": float(heart_bps),
-                                "disease_type": "Heart",
-                                "prediction_result": result_text,
-                                "raw_inputs": {
-                                    "Age": age, "Sex": sex, "Resting_Blood_Pressure": heart_bps,
-                                    "Cholesterol": chol, "Max_Heart_Rate": heart_rate,
-                                    "Fasting_Blood_Sugar": fbs, "Exercise_Angina": exang,
-                                    "ST_Depression": oldpeak, "Slope_ST": slope,
-                                    "Major_Vessels_CA": ca, "Chest_Pain_Level": cp,
-                                    "Resting_ECG": restecg, "Thalassemia": thal
-                                }
-                            }
-                            sb.table('patient_records').insert(payload).execute()
-                    except Exception as e:
-                        st.error(f"Persistence Error: {str(e)}")
+
             except Exception as e:
                 st.error(f"Error during prediction: {str(e)}")
