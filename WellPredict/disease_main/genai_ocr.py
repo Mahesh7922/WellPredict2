@@ -7,7 +7,7 @@ import streamlit as st
 
 # Load environment logic
 load_dotenv()
-API_KEY = st.secrets.get("API_KEY", os.getenv("API_KEY"))
+API_KEY = st.secrets["API_KEY"]
 if API_KEY:
     genai.configure(api_key=API_KEY)
 
