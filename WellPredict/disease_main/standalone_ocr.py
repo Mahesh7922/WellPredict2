@@ -8,7 +8,7 @@ def report_uploader():
     st.markdown("""
         <div style="margin-bottom: 2rem;">
             <h2>General Medical Report OCR Analyzer</h2>
-            <p>Upload any medical document (PDF or Image) to extract general clinical text instantly using Gemini Vision AI.</p>
+            <p>Upload any medical document (PDF or Image) to extract general clinical text instantly using Vision AI.</p>
         </div>
     """, unsafe_allow_html=True)
     

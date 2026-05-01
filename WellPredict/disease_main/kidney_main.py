@@ -43,7 +43,7 @@ def init_session_state():
 
 def handle_ocr_autofill(file_obj):
     try:
-        with st.spinner("Gemini AI is analyzing the comprehensive renal report..."):
+        with st.spinner("Analyzing the report..."):
             file_obj.seek(0)
             extracted_data = extract_disease_metrics(file_obj.read(), file_obj.type, "kidney")
             

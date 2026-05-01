@@ -32,7 +32,7 @@ def init_session_state():
 
 def handle_ocr_autofill(file_obj):
     try:
-        with st.spinner("Gemini AI is analyzing the medical report..."):
+        with st.spinner("Analyzing the medical report..."):
             file_obj.seek(0)
             extracted_data = extract_disease_metrics(file_obj.read(), file_obj.type, "heart")
             
@@ -93,7 +93,7 @@ def heart():
     st.markdown("""
         <div style="margin-bottom: 2rem;">
             <h2>Cardiovascular Risk Assessment</h2>
-            <p>Input patient diagnostic data manually or auto-fill via Gemini GenAI OCR.</p>
+            <p>Input patient diagnostic data manually or auto-fill via Vision AI OCR.</p>
         </div>
     """, unsafe_allow_html=True)
 

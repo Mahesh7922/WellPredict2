@@ -27,7 +27,7 @@ def init_session_state():
 
 def handle_ocr_autofill(file_obj):
     try:
-        with st.spinner("Gemini AI is analyzing the medical report..."):
+        with st.spinner("Analyzing the medical report..."):
             file_obj.seek(0)
             extracted_data = extract_disease_metrics(file_obj.read(), file_obj.type, "diabetes")
             
@@ -77,7 +77,7 @@ def diabetes():
     st.markdown("""
         <div style="margin-bottom: 2rem;">
             <h2>Diabetes Risk Assessment</h2>
-            <p>Enter the patient's vitals manually or upload a medical report to auto-fill the form using Gemini AI.</p>
+            <p>Enter the patient's vitals manually or upload a medical report to auto-fill the form using Vision AI.</p>
         </div>
     """, unsafe_allow_html=True)
 
